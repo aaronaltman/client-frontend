@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 
 export function POST() {
-  return NextResponse.redirect("/api/todo");
+  return NextResponse.redirect(
+    "http://127.0.0.1:8000/api/todo/todos/?format=json"
+  );
 }
 export function GET() {
   return NextResponse.redirect("/api/todo");

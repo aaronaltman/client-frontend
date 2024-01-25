@@ -1,5 +1,6 @@
 "use client";
 
+import TodoCreationForm from "@/components/todo-creation-form";
 import { useEffect, useState } from "react";
 
 type Todo = {
@@ -35,18 +36,23 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
-      <h1>Welcome Home Friends</h1>
-      {todoItems.length > 0 ? (
-        todoItems.map((item: Todo) => (
-          <div key={item.id}>
-            <h2>{item.title}</h2>
-            <p>{item.content}</p>
-          </div>
-        ))
-      ) : (
-        <p>No Todo items found.</p>
-      )}
-    </main>
+    <>
+      <main>
+        <h1>Welcome Home Friends</h1>
+        {todoItems.length > 0 ? (
+          todoItems.map((item: Todo) => (
+            <div key={item.id}>
+              <h2>{item.title}</h2>
+              <p>{item.content}</p>
+            </div>
+          ))
+        ) : (
+          <p>No Todo items found.</p>
+        )}
+      </main>
+      <section>
+        <TodoCreationForm />
+      </section>
+    </>
   );
 }
